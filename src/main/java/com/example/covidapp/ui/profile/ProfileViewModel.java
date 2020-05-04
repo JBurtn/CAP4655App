@@ -17,8 +17,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class ProfileViewModel extends ViewModel {
-    // TODO: Implement the ViewModel
-
+    //Classes
     private FirebaseBE BE = new FirebaseBE();
     private MutableLiveData<UserModel> userData;
     private MediatorLiveData<FirebaseBE.LoginState> stateMediator = new MediatorLiveData<>();
@@ -27,6 +26,7 @@ public class ProfileViewModel extends ViewModel {
     private static volatile FirebaseUser currentUser;
 
     public ProfileViewModel(){
+        //Async LiveData Alerts for CB
           stateMediator.addSource(BE.getState(), new Observer<FirebaseBE.LoginState>() {
               @Override
               public void onChanged(FirebaseBE.LoginState loginState) {
@@ -55,6 +55,7 @@ public class ProfileViewModel extends ViewModel {
         return stateMediator;
     }
 
+    // notify DB when there is a change
     void setUserDatabase(UserModel model){
         UserDB.child(currentUser.getUid()).setValue(model);
     }

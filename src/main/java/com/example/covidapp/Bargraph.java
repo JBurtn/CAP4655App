@@ -42,6 +42,7 @@ public class Bargraph extends AppCompatActivity {
         ArrayList<BarEntry> Recovered = new ArrayList<BarEntry>();
         XAxis xAxis = chart.getXAxis();
 
+        //iterate and set
         for(int count = 0; count < TagList.size(); count++){
             Region region = (Region) bundle.get(TagList.get(count));
             Tconfirmed.add(new BarEntry(count, Float.parseFloat(region.getTotalConfirmedCases()) ));
@@ -51,6 +52,7 @@ public class Bargraph extends AppCompatActivity {
             Dead.add(new BarEntry(count, Float.parseFloat(region.getDeaths()) ));
             Recovered.add(new BarEntry(count, Float.parseFloat(region.getRecoveredCases()) ));
         }
+        //Set labels for data
         xAxis.setValueFormatter(new IndexAxisValueFormatter(TagList));
         xAxis.setGranularity(1f);
 

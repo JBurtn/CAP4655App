@@ -31,7 +31,7 @@ public class Linegraph extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_linegraph);
 
-
+        //declarations
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
 
@@ -50,8 +50,8 @@ public class Linegraph extends AppCompatActivity {
         ArrayList<Entry> Recovered = new ArrayList<Entry>();
         XAxis xAxis = chart.getXAxis();
 
+        //LineGraph requires consistent and continuous points
         histories.sort((final RegionHistory a, final RegionHistory b) -> a.getDate().compareTo(b.getDate()));
-
 
         float lastTConfirmed = 0f;
         float lastTDead = 0f;
@@ -66,6 +66,7 @@ public class Linegraph extends AppCompatActivity {
             Tconfirmed.add(new Entry(count, tConfirmed ));
             TDead.add(new Entry(count, tDead ));
             TRecovered.add(new Entry(count, tRecovered ));
+            //Descretize the data
             confirmed.add(new  Entry(count, tConfirmed - lastTConfirmed));
             Dead.add(new  Entry(count, tDead - lastTDead));
             Recovered.add(new  Entry(count,  tRecovered - lastTRecovered));

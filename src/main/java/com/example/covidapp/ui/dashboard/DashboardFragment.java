@@ -45,46 +45,49 @@ public class DashboardFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         dashboardViewModel = new ViewModelProvider(this).get(DashboardViewModel.class);
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        //Const
+        String[] names = getResources().getStringArray(R.array.Region_Code);
         VolleyBE BE = VolleyBE.getInstance(getContext());
         Spinner spinner = root.findViewById(R.id.StatList);
         Button compare = root.findViewById(R.id.compare);
         LinearLayout layout = root.findViewById(R.id.Countries);
-        String[] names = getResources().getStringArray(R.array.Region_Code);
+
+        //Modulars
         Intent BarGraph = new Intent(getContext(), Bargraph.class);//set Intent
         Intent LineGraph = new Intent(getContext(), Linegraph.class);
-        Bundle GetHistory = new Bundle();// set Intent
+        Bundle GetHistory = new Bundle();// set Bundle
         Bundle Comp = new Bundle();
 
         dashboardViewModel.QueryStats(BE, "global", true);
 
         for (String name : names) {
-            constraintLayout = LayoutInflater.from(root.getContext()).inflate(R.layout.countrylayout, null);
+            constraintLayout = LayoutInflater.from(root.getContext()).inflate(R.layout.countrylayout, null);// Layout Located at constraintLayout.xml
             History = constraintLayout.findViewById(R.id.History);
             setCountry = constraintLayout.findViewById(R.id.GetCountry);
             Name = constraintLayout.findViewById(R.id.CountryName);
             TextView Value = constraintLayout.findViewById(R.id.Value);
 
             Name.setText(name);
-            setCountry.setTag(name);
+            setCountry.setTag(name);//Identifiers for Intent call
             Value.setTag(name);
             History.setTag(name);
 
             setCountry.setOnClickListener(v -> {
                 CheckBox c = (CheckBox) v;
                 String tag = (String) c.getTag();
-                if (c.isChecked()) {
+                if (c.isChecked()) {//Mod Bundle
                     Log.d("Checked", tag);
-                    dashboardViewModel.addCountries(tag);
+                    dashboardViewModel.addCountries(tag);//Notify view model
                     Comp.putSerializable(tag, dashboardViewModel.getCountries().get(tag));
-                    Comp.putStringArrayList("TagList", dashboardViewModel.getSelector());
+                    Comp.putStringArrayList("TagList", dashboardViewModel.getSelector());//Update Bundle
                     if(dashboardViewModel.getSelector().size() > 1)
-                        compare.setEnabled(true);
+                        compare.setEnabled(true);// cant compare a signle item
                 } else {
                     Log.d("Unchecked", tag);
                     if(Comp.containsKey(tag))
                         Comp.remove(tag);
                         dashboardViewModel.removeCountries(tag);
-                        Comp.putStringArrayList("TagList", dashboardViewModel.getSelector());
+                        Comp.putStringArrayList("TagList", dashboardViewModel.getSelector());//Update Bundle
                     if(dashboardViewModel.getSelector().size() <= 1)
                         compare.setEnabled(false);
                 }
@@ -95,7 +98,7 @@ public class DashboardFragment extends Fragment {
                     Button b = (Button) v;
                     String tag = (String) b.getTag();
                     Region r = dashboardViewModel.getCountries().get(tag);
-                    if(r.hasHistory()){
+                    if(r.hasHistory()){//Package if there or wait for observe CB
 
                         GetHistory.putSerializable("History", r);
                         GetHistory.putInt("Selection", spinner.getSelectedItemPosition());
@@ -169,6 +172,7 @@ public class DashboardFragment extends Fragment {
             @Override
             public void onChanged(String aBoolean) {
                 if(dashboardViewModel.getFlag()){
+                    // respond to query from button only
                     GetHistory.putSerializable("History", dashboardViewModel.getCountries().get(aBoolean));
                     LineGraph.putExtras(GetHistory);
                     startActivity(LineGraph);

@@ -37,7 +37,7 @@ public class RegistrationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-
+        //Const
         final Intent intent = getIntent();
         final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         final FirebaseDatabase DataBase = FirebaseDatabase.getInstance();
@@ -59,6 +59,7 @@ public class RegistrationActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Const
                 final String user = username.getText().toString();
                 final String pass = password.getText().toString();
                 final RadioButton q1a = findViewById(q1.getCheckedRadioButtonId());
@@ -72,7 +73,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 survey.addQuestion(R.string.question4, sp1.getSelectedItem().toString());
                 final UserModel UserData =
                         new UserModel(FName.getText().toString(), LName.getText().toString(), DateofBirth.getText().toString(), Address.getText().toString(), survey);
-
+                //logic
                 if(checkUsername(user) && checkPassword(pass) && UserData.checkUserdata()){
                     //send results to firebase adn finish on success toast
                     firebaseAuth.createUserWithEmailAndPassword(user, pass)
@@ -83,7 +84,7 @@ public class RegistrationActivity extends AppCompatActivity {
                                         FirebaseUser user = firebaseAuth.getCurrentUser();
                                         fireDB.child(user.getUid()).setValue(UserData);
                                         Toast.makeText(RegistrationActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-
+                                        //CB to Login to update UI
                                         intent.putExtra("username", user);
                                         intent.putExtra("password", pass);
                                         setResult(Activity.RESULT_OK);
@@ -113,7 +114,7 @@ public class RegistrationActivity extends AppCompatActivity {
             }
         });
     }
-    private boolean checkUsername(String user){
+    private boolean checkUsername(String user){//Username is email
         //perform Regex
         if (user == null) {
             return false;
@@ -129,7 +130,7 @@ public class RegistrationActivity extends AppCompatActivity {
         if(pass == null)
             return false;
         String isUser = pass.trim();
-        return isUser.matches("^([0-9A-Za-z@.]{6,255})$");
+        return isUser.matches("^([0-9A-Za-z@.]{6,255})$");//6 or more no special chars
     }
 
 }
