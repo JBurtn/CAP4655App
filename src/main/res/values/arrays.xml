@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ratings_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+    <string-array name="Statistics">
+        <item> </item>
+        <item>Confirmed Cumul.</item>
+        <item>Deaths Cumul.</item>
+        <item>Recoveries Cumul.</item>
+        <item>Confirmed (By day)</item>
+        <item>Deaths (By day)</item>
+        <item>Recoveries (By day)</item>
+
+    </string-array>
+    <string-array name="Region_Code">
+        <item value="global">global</item>
+        <item value="AF">AF</item>
+        <item value="AL">AL</item>
+        <item value="DZ">DZ</item>
+        <item value="AD">AD</item>
+        <item value="AR">AR</item>
+        <item value="AM">AM</item>
+        <item value="AU">AU</item>
+        <item value="AT">AT</item>
+        <item value="AZ">AZ</item>
+        <item value="BH">BH</item>
+        <item value="BD">BD</item>
+        <item value="BY">BY</item>
+        <item value="BE">BE</item>
+        <item value="BT">BT</item>
+        <item value="BO">BO</item>
+        <item value="BA">BA</item>
+        <item value="BR">BR</item>
+        <item value="BN">BN</item>
+        <item value="BG">BG</item>
+        <item value="BF">BF</item>
+        <item value="KH">KH</item>
+        <item value="CM">CM</item>
+        <item value="CA">CA</item>
+        <item value="CL">CL</item>
+        <item value="CN">CN</item>
+        <item value="CO">CO</item>
+        <item value="CR">CR</item>
+        <item value="CI">CI</item>
+        <item value="HR">HR</item>
+        <item value="CU">CU</item>
+        <item value="CY">CY</item>
+        <item value="CZ">CZ</item>
+        <item value="CD">CD</item>
+        <item value="DK">DK</item>
+        <item value="FO">FO</item>
+        <item value="DO">DO</item>
+        <item value="EC">EC</item>
+        <item value="EG">EG</item>
+        <item value="EE">EE</item>
+        <item value="FI">FI</item>
+        <item value="FR">FR</item>
+        <item value="BL">BL</item>
+        <item value="MF">MF</item>
+        <item value="GF">GF</item>
+        <item value="PF">PF</item>
+        <item value="GE">GE</item>
+        <item value="DE">DE</item>
+        <item value="GH">GH</item>
+        <item value="GR">GR</item>
+        <item value="GY">GY</item>
+        <item value="VA">VA</item>
+        <item value="HN">HN</item>
+        <item value="HU">HU</item>
+        <item value="IS">IS</item>
+        <item value="IN">IN</item>
+        <item value="ID">ID</item>
+        <item value="IR">IR</item>
+        <item value="IQ">IQ</item>
+        <item value="IE">IE</item>
+        <item value="IL">IL</item>
+        <item value="IT">IT</item>
+        <item value="CI">CI</item>
+        <item value="JM">JM</item>
+        <item value="JP">JP</item>
+        <item value="JO">JO</item>
+        <item value="KW">KW</item>
+        <item value="LV">LV</item>
+        <item value="LB">LB</item>
+        <item value="LI">LI</item>
+        <item value="LT">LT</item>
+        <item value="LU">LU</item>
+        <item value="MY">MY</item>
+        <item value="MV">MV</item>
+        <item value="MT">MT</item>
+        <item value="MQ">MQ</item>
+        <item value="MX">MX</item>
+        <item value="MD">MD</item>
+        <item value="MC">MC</item>
+        <item value="MN">MN</item>
+        <item value="MA">MA</item>
+        <item value="NP">NP</item>
+        <item value="NL">NL</item>
+        <item value="NZ">NZ</item>
+        <item value="NG">NG</item>
+        <item value="MK">MK</item>
+        <item value="NO">NO</item>
+        <item value="OM">OM</item>
+        <item value="PK">PK</item>
+        <item value="PS">PS</item>
+        <item value="PA">PA</item>
+        <item value="PY">PY</item>
+        <item value="PE">PE</item>
+        <item value="PH">PH</item>
+        <item value="PL">PL</item>
+        <item value="PT">PT</item>
+        <item value="QA">QA</item>
+        <item value="RE">RE</item>
+        <item value="RO">RO</item>
+        <item value="RU">RU</item>
+        <item value="SM">SM</item>
+        <item value="SA">SA</item>
+        <item value="SN">SN</item>
+        <item value="RS">RS</item>
+        <item value="SG">SG</item>
+        <item value="SK">SK</item>
+        <item value="SI">SI</item>
+        <item value="ZA">ZA</item>
+        <item value="KR">KR</item>
+        <item value="ES">ES</item>
+        <item value="LK">LK</item>
+        <item value="VC">VC</item>
+        <item value="SE">SE</item>
+        <item value="CH">CH</item>
+        <item value="TW">TW</item>
+        <item value="TH">TH</item>
+        <item value="TG">TG</item>
+        <item value="TT">TT</item>
+        <item value="TN">TN</item>
+        <item value="TR">TR</item>
+        <item value="UA">UA</item>
+        <item value="AE">AE</item>
+        <item value="GI">GI</item>
+        <item value="GB">GB</item>
+        <item value="US">US</item>
+        <item value="VN">VN</item>
+    </string-array>
+
+</resources>
