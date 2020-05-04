@@ -44,8 +44,8 @@ public class RegistrationActivity extends AppCompatActivity {
         final DatabaseReference fireDB = DataBase.getReference().child("User");
 
         final Button submit = findViewById(R.id.RegSubmit);
-        final EditText username = findViewById(R.id.Username);
-        final EditText password = findViewById(R.id.Password);
+        final EditText usernames = findViewById(R.id.Username);
+        final EditText passwords = findViewById(R.id.Password);
         final EditText DateofBirth = findViewById(R.id.DateofBirth);
         final EditText FName = findViewById(R.id.FName);
         final EditText LName = findViewById(R.id.LName);
@@ -60,8 +60,8 @@ public class RegistrationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Const
-                final String username = username.getText().toString();
-                final String password = password.getText().toString();
+                final String username = usernames.getText().toString();
+                final String password = passwords.getText().toString();
                 final RadioButton q1a = findViewById(q1.getCheckedRadioButtonId());
                 final RadioButton q2a = findViewById(q2.getCheckedRadioButtonId());
                 final RadioButton q3a = findViewById(q3.getCheckedRadioButtonId());
