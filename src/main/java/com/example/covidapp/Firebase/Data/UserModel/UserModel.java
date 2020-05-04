@@ -14,29 +14,31 @@ public class UserModel implements Serializable{
     private String last_name;
     private String date_of_birth;
     private String address;
-    private Survey survey;
+    private Survey serve;
+
+
     public UserModel(){}
 
-    public UserModel(String first_name, String last_name, String date_of_birth, String address, Survey survey){
+    public UserModel(String first_name, String last_name, String date_of_birth, String address, Survey serve){
 
         this.first_name = first_name;
         this.last_name = last_name;
         this.date_of_birth = date_of_birth;
         this.address = address;
-        this.survey = survey;
+        this.serve = serve;
     }
     @NotNull
     public String toString(){
 
         String s = first_name + " " + last_name + "\n" +
                 address + "\n" + date_of_birth + "\n";
-        if(survey != null)
-            return s + survey.toString();
+        if(serve != null)
+            return s + serve.toString();
         return s;
     }
     public boolean checkUserdata(){
         //perform standard Regex
-        boolean result;
+        boolean result = false;
         String[] data = {first_name,last_name,address};
         for(String d: data){
             if(d == null || d.equals(""))
@@ -44,7 +46,7 @@ public class UserModel implements Serializable{
             else
                 result = d.matches("^[a-zA-Z0-9]+$");
         }
-        result = date_of_birth.matches("^(0[1-9]|1[0-2])/([0-2][0-9])|(3[0-1])/[0-9]{2,4}$");
+//        result = date_of_birth.matches("^(0[1-9]|1[0-2])/([0-2][0-9])|(3[0-1])/[0-9]{2,4}$");
         return result;
     }
     private void readObject(ObjectInputStream aInputStream) throws ClassNotFoundException, IOException
@@ -54,7 +56,7 @@ public class UserModel implements Serializable{
         date_of_birth = aInputStream.readUTF();
         address = aInputStream.readUTF();
 
-        survey = (Survey) aInputStream.readObject();
+        serve = (Survey) aInputStream.readObject();
     }
 
     private void writeObject(ObjectOutputStream aOutputStream) throws IOException
@@ -63,7 +65,7 @@ public class UserModel implements Serializable{
         aOutputStream.writeUTF(last_name);
         aOutputStream.writeUTF(date_of_birth);
         aOutputStream.writeUTF(address);
-        aOutputStream.writeObject(survey);
+        aOutputStream.writeObject(serve);
     }
     public String getFirst_name() {
         return first_name;
@@ -82,7 +84,7 @@ public class UserModel implements Serializable{
     }
 
     public Survey getSurvey() {
-        return survey;
+        return serve;
     }
 
     public void setFirst_name(String first_name) {
@@ -101,7 +103,7 @@ public class UserModel implements Serializable{
         this.address = address;
     }
 
-    public void setSurvey(Survey survey) {
-        this.survey = survey;
+    public void setServe(Survey serve) {
+        this.serve = serve;
     }
 }

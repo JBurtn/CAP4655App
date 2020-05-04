@@ -79,17 +79,17 @@ public class ProfileFragment extends Fragment {
         bundle.putString("Address", temp.getAddress());
         bundle.putString("DOB", temp.getDate_of_birth());
         editScreen.putExtras(bundle);
-        startActivityForResult(editScreen, Activity.RESULT_OK);
+        startActivityForResult(editScreen, 52);
 
     }
     public void OnLogout(View view){
         mViewModel.logout();
     }
-    @Override
-    public void onActivityResult(int Result, int request, Intent data){
-        if(Result == request) {
-           Bundle bundle = data.getExtras();
 
+    public void onActivityResult(int request, int Result, Intent data){
+        if(request == 52) {
+           Bundle bundle = data.getExtras();
+            Log.d("Called", "c");
            // get Current Package
            UserModel model = mViewModel.getUserData().getValue();
            //Redeclare with updated values

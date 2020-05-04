@@ -57,13 +57,13 @@ public class LoginActivity extends AppCompatActivity {
     public void onRegisterClick(View view){
 
         Intent register = new Intent(LoginActivity.this, RegistrationActivity.class);
-        startActivityForResult(register, Activity.RESULT_OK);
+        startActivityForResult(register, 100);
     }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == resultCode){
+        if(resultCode == 100){
            String username = data.getStringExtra("username");
            String password = data.getStringExtra("password");
            mViewModel.login(username, password);

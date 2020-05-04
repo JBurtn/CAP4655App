@@ -60,8 +60,8 @@ public class RegistrationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Const
-                final String user = username.getText().toString();
-                final String pass = password.getText().toString();
+                final String username = username.getText().toString();
+                final String password = password.getText().toString();
                 final RadioButton q1a = findViewById(q1.getCheckedRadioButtonId());
                 final RadioButton q2a = findViewById(q2.getCheckedRadioButtonId());
                 final RadioButton q3a = findViewById(q3.getCheckedRadioButtonId());
@@ -74,9 +74,9 @@ public class RegistrationActivity extends AppCompatActivity {
                 final UserModel UserData =
                         new UserModel(FName.getText().toString(), LName.getText().toString(), DateofBirth.getText().toString(), Address.getText().toString(), survey);
                 //logic
-                if(checkUsername(user) && checkPassword(pass) && UserData.checkUserdata()){
+                if(checkUsername(username) && checkPassword(password)){
                     //send results to firebase adn finish on success toast
-                    firebaseAuth.createUserWithEmailAndPassword(user, pass)
+                    firebaseAuth.createUserWithEmailAndPassword(username, password)
                             .addOnCompleteListener(RegistrationActivity.this, new OnCompleteListener<AuthResult>(){
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
@@ -85,9 +85,9 @@ public class RegistrationActivity extends AppCompatActivity {
                                         fireDB.child(user.getUid()).setValue(UserData);
                                         Toast.makeText(RegistrationActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                                         //CB to Login to update UI
-                                        intent.putExtra("username", user);
-                                        intent.putExtra("password", pass);
-                                        setResult(Activity.RESULT_OK);
+                                        intent.putExtra("username", username);
+                                        intent.putExtra("password", password);
+                                        setResult(100, intent);
                                         finish();
                                     }
                                     else{

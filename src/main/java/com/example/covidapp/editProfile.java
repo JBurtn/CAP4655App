@@ -46,7 +46,7 @@ public class editProfile extends AppCompatActivity {
                 bundle.putString("URI", uri);
 
                 response.putExtras(bundle);
-                setResult(Activity.RESULT_OK, response);
+                setResult(52, response);
                 finish();
             }
         });

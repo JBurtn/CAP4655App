@@ -106,6 +106,7 @@ public class HomeFragment extends Fragment {
 
                                 }
                             });
+                            Vbe.addToRequestQueue(request);
                         }
                     }
                 });
